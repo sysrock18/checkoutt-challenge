@@ -5,7 +5,6 @@ import Routes from '../routes'
 import { Provider } from 'react-redux'
 import store from '../store'
 
-
 const homeContainer = document.getElementById('home-container')
 
 render(

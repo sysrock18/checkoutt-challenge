@@ -1,0 +1,9 @@
+.Header {
+  height: 80px;
+  display: flex;
+  padding: 0 16px;
+  background-color: #FF9800;
+  justify-content: center;
+  flex-direction: column;
+  box-shadow: 0 2px 5px rgba(0,0,0,.26);
+}

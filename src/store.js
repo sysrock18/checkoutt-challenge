@@ -2,7 +2,6 @@ import { createStore } from 'redux'
 import data from './reducers/data'
 import { Map as map } from 'immutable'
 
-
 const store = createStore(
   data,
   map(),
