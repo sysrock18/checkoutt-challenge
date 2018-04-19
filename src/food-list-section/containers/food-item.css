@@ -1,0 +1,9 @@
+.FoodItem {
+  padding: 10px;
+  margin: 10px;
+}
+
+.FoodItem img {
+  height: 125px;
+  width: auto;
+}

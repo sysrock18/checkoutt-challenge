@@ -4,7 +4,9 @@ import getItems from '../../api'
 import Header from '../components/header'
 import Logo from '../components/logo'
 import { List as list } from 'immutable'
-import Foods from '../components/foods'
+import FoodList from '../../food-list-section/components/food-list'
+import FormUser from '../components/form-user'
+import CheckoutFooter from '../components/checkout-footer'
 
 class Step1 extends Component {
   componentDidMount = async () => {
@@ -21,10 +23,12 @@ class Step1 extends Component {
       <Header>
         <Logo />
       </Header>
-      <Foods items={this.props.items} />
+      <FoodList items={this.props.items} />
+      <FormUser />
+      <CheckoutFooter />
     </section>
   )
-  
+
 }
 
 function mapStateToProps(state, props) {
@@ -36,7 +40,7 @@ function mapStateToProps(state, props) {
   }
 
   return {
-    items: itemsResult
+    items: state.get('items')
   }
 }
 
