@@ -3,7 +3,8 @@ import { fromJS, Map as map } from 'immutable'
 
 const initialState = fromJS({
   items: {},
-  quantityItem: {}
+  quantityItem: {},
+  addedItems: []
 })
 
 function data(state = initialState.get('items'), action = {}) {
@@ -31,7 +32,30 @@ function quantityItem(state = initialState.get('quantityItem'), action = {}) {
   }
 }
 
+function toggleItemsCheckout(state = initialState.get('addedItems'), action = {}) {
+  switch (action.type) {
+    case 'TOGGLE_ADD_ITEM':
+      const index = state.indexOf(action.payload)
+
+      if (index >= 0) {
+        return state.delete(index)
+      } else {
+        return state.push(action.payload)
+      }
+      break
+    
+    default:
+      return state
+  }
+}
+
+export const getAddedItems = (state, id) => state.get('addedItems')
+
+export const getQuantityItemById = (state, id) => state.get('quantityItem').get(id.toString())
+
+
 export default combineReducers({
   items: data,
-  quantityItem
+  quantityItem,
+  addedItems: toggleItemsCheckout
 })
